@@ -10,8 +10,17 @@ usermod -a -G nagcmd nagios
 usermod -a -G nagios,nagcmd www-data
 
 #updating and install prerequisites
-sudo apt-get update
-sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.0 libgd2-xpm-dev
+sudo apt-get update 
+sudo apt-get install autoconf
+sudo apt-get install gcc
+sudo apt-get install libc6
+sudo apt-get install make
+sudo apt-get install wget
+sudo apt-get install unzip
+sudo apt-get install apache2
+sudo apt-get install php
+sudo apt-get install libapache2-mod-php7.0
+sudo apt-get install libgd2-xpm-dev
 
 #downloading nagios and extracting
 cd ~
