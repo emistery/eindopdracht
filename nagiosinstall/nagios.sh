@@ -28,7 +28,7 @@ curl -L -O https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.3.4.
 tar zxf nagios-4.3.4.tar.gz
 
 #configure user and group
-cd nagios-4.3.4.tar.gz
+cd nagios-*
 ./configure --with-nagios-group=nagios --with-command-group=nagcmd
 
 #compiling nagios
@@ -51,7 +51,7 @@ curl -L -O https://github.com/NagiosEnterprises/nrpe/releases/download/nrpe-3.2.
 tar zxf nrpe-3.2.1.tar.gz
 
 #Configure NRPE plugin
-cd nrpe-3.2.1.tar.gz
+cd nrpe-*
 ./configure
 
 #compile NRPE
