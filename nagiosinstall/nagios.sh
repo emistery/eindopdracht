@@ -59,3 +59,55 @@ echo "NRPE Plugin is installed!"
 echo "Configuring Nagios!"
 
 #Finish the configuration
+
+#uncommenting line in config file
+sed -i '/cfg_dir/s/^#//g' /usr/local/nagios/etc/nagios.cfg
+
+#Creating dir for each monitored servers config
+sudo mkdir /usr/local/nagios/etc/servers
+
+#Inserting nrpe command
+cat <<EOT >> /usr/local/nagios/etc/objects/commands.cfg
+define command{
+        command_name check_nrpe
+        command_line $USER1$/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+}
+EOT
+
+#enabling apache modules
+sudo a2enmod rewrite
+sudo a2enmod cgi
+
+echo "Choose admin password!"
+
+sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+
+#creating symbolic link for apache site
+sudo ln -s /etc/apache2/sites-available/nagios.conf /etc/apache2/sites-enabled/
+
+#restarting apache to process changes
+sudo systemctl restart apache2
+
+#creating systemd file
+cat <<EOT >> /etc/systemd/system/nagios.service
+[Unit]
+Description=Nagios
+BindTo=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+User=nagios
+Group=nagios
+ExecStart=/usr/local/nagios/bin/nagios /usr/local/nagios/etc/nagios.cfg
+EOT
+
+#enabling nagios on system boot
+sudo systemctl enable /etc/systemd/system/nagios.service
+sudo systemctl start nagios
+
+echo "Thank you for your patience, nagios is installed!"
+
+
