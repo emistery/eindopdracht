@@ -39,7 +39,7 @@ sudo make install-init
 sudo make install-config
 
 #copying apache file
-sudo /usr/bin/install -c -m 644 sample-config/httpd.conf /etc/apache2/sites-available/nagios.confsudo /usr/bin/install -c -m 644 sample-config/httpd.conf /etc/apache2/sites-available/nagios.conf
+sudo /usr/bin/install -c -m 644 /home/emiel/nagios-4.3.4/sample-config/httpd.conf /etc/apache2/sites-available/nagios.conf
 
 echo "Nagios is installed"
 
@@ -91,8 +91,8 @@ echo "Choose admin password!"
 sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 
 #creating symbolic link for apache site
-#sudo ln -s /etc/apache2/sites-available/nagios.conf /etc/apache2/sites-enabled
-a2ensite nagios
+sudo ln -s /etc/apache2/sites-available/nagios.conf /etc/apache2/sites-enabled/
+#a2ensite nagios
 
 #restarting apache to process changes
 sudo systemctl restart apache2
