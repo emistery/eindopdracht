@@ -19,7 +19,7 @@ sudo apt-get install wget
 sudo apt-get install unzip
 sudo apt-get install apache2
 sudo apt-get install php
-sudo apt-get install libapache2-mod-php7.0
+sudo apt-get install libapache2-mod-php*
 sudo apt-get install libgd2-xpm-dev
 
 #downloading nagios and extracting
