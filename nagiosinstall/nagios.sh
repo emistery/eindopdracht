@@ -91,7 +91,7 @@ echo "Choose admin password!"
 sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 
 #creating symbolic link for apache site
-sudo ln -s /etc/apache2/sites-available/nagios.conf /etc/apache2/sites-enabled/
+sudo ln -s /etc/apache2/sites-available/nagios.conf /etc/apache2/sites-enabled
 
 #restarting apache to process changes
 sudo systemctl restart apache2
