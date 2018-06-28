@@ -67,9 +67,9 @@ echo "NRPE Plugin is installed!"
 echo "Configuring Nagios!"
 
 #Finish the configuration
-
+UNCOMMENT="cfg_dir=/usr/local/nagios/etc/servers"
 #uncommenting line in config file
-sed -i '/cfg_dir/s/^#//g' /usr/local/nagios/etc/nagios.cfg
+sed -i '/$UNCOMMENT/s/^#//g' /usr/local/nagios/etc/nagios.cfg
 
 #Creating dir for each monitored servers config
 sudo mkdir /usr/local/nagios/etc/servers
