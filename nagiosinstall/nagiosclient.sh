@@ -4,11 +4,11 @@ IPADDR="$1"
 
 sudo useradd nagios
 sudo apt-get update
-sudo apt-get install build-essential
-sudo apt-get install libgd2-xpm-dev
-sudo apt-get install openssl
-sudo apt-get install libssl-dev
-sudo apt-get install unzip
+sudo apt-get install -y build-essential
+sudo apt-get install -y libgd2-xpm-dev
+sudo apt-get install -y openssl
+sudo apt-get install -y libssl-dev
+sudo apt-get install -y unzip
 
 cd ~
 curl -L -O http://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz
