@@ -117,6 +117,11 @@ EOT
 sudo systemctl enable /etc/systemd/system/nagios.service
 sudo systemctl start nagios
 
+#fix for checks not working
+
+sudo apt-get install nagios-plugins
+cp /usr/lib/nagios/plugins/check_* /usr/local/nagios/libexec
+
 echo "Thank you for your patience, nagios is installed!"
 
 
