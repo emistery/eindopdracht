@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #Made by Emiel Kok
 #Script to automatically install Docker CE
 
